@@ -40,3 +40,8 @@
 2. 使用vue-resource 的this.$http.get 获取数据
 3. 获取到的数据保存到data 上
 4. 使用v-for 循环渲染 每一个Item 项目
+
+## 首页中的六宫格的制作
+1. 从mui中的grid的模版中获取
+2. 从[阿里巴巴矢量图](http://www.iconfont.cn/search/index) 中获取的图标
+3. 修改样式

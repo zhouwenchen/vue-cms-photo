@@ -25,7 +25,6 @@
 				<span class="mui-tab-label">搜索</span>
 			</router-link>
 		</nav>
-        <h1>这是app的组件</h1>
     </div>
 </template>
 
