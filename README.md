@@ -45,3 +45,5 @@
 1. 从mui中的grid的模版中获取
 2. 从[阿里巴巴矢量图](http://www.iconfont.cn/search/index) 中获取的图标
 3. 修改样式
+
+## tabbar各个组件的切换效果实现

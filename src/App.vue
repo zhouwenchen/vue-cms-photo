@@ -4,7 +4,9 @@
         <mt-header fixed title="黑马程序员.vue项目"></mt-header>
 
         <!-- 中间的组件-->
-		<router-view></router-view>
+		<transition mode="out-in">
+			<router-view></router-view>
+		</transition>
 
         <!-- 底部的组件-->
         <nav class="mui-bar mui-bar-tab">
@@ -29,7 +31,6 @@
 </template>
 
 <script>
-
 export default {
    
 }
@@ -38,7 +39,24 @@ export default {
 <style lang="scss" scoped>
 .app-container{
     padding-top: 40px;
+	overflow: hidden;
+}
 
+// 切换效果
+.v-enter{
+	opacity: 0;
+	transform: translateX(100%);
+}
+
+.v-leave-to{
+	opacity: 0;
+	transform: translateX(-100%);
+	position: absolute;
+}
+
+.v-enter-active,
+.v-leave-active{
+	transform: all 1s ease;
 }
 </style>
 
