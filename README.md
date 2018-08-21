@@ -34,3 +34,9 @@
 ## 改造 tabbar 为 router-link
 ## 设置路由高亮
 ## 点击 tabbar 中的路由链接， 展示对应的路由组件
+
+## 加载首页轮播图的数据
+1. 获取数据，使用vue-resource
+2. 使用vue-resource 的this.$http.get 获取数据
+3. 获取到的数据保存到data 上
+4. 使用v-for 循环渲染 每一个Item 项目
