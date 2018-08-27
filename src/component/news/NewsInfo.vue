@@ -4,7 +4,7 @@
         <h3 class="title">{{ newsinfo.title}}</h3>
         <!-- 子标题 -->
         <p class="subtitle">
-            <span>发布时间：{{ newsinfo.add_time}}</span>
+            <span>发布时间：{{ newsinfo.add_time | dateFormat}}</span>
             <span>点击次数：{{ newsinfo.click}}次</span>
         </p>
         <hr>
@@ -12,7 +12,7 @@
         <!-- 内容 -->
         <div class="content" v-html="newsinfo.content"></div>
          <!-- 评论的子组件-->
-        <comment-box></comment-box>
+        <comment-box v-bind:id="id"></comment-box>
     </div>    
 </template>
 
@@ -33,9 +33,9 @@ export default {
     },
     methods : {
         getNewsInfo(){
-            this.$http.get("http://localhost:8899/api/getnewsinfo" + this.id).then(result => {
+            this.$http.get("api/getnewsinfo/" + this.id).then(result => {
                 if(result.body.status === 0){
-                    this.newsinfo = result.body.message[0]
+                    this.newsinfo = result.body.message
                     console.log(result.body.message)
                     Toast('加载成功')
                 } else {

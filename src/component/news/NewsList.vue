@@ -31,9 +31,9 @@ export default {
     },
     methods:{
         getNewsList(){
-            this.$http.get('http://localhost:8889/api/getnewslists').then(result => {
+            this.$http.get('api/getnewslists').then(result => {
                 if(result.body.status === 0){
-                    this.newsList = result.body.messages
+                    this.newsList = result.body.message
                 } else {
                     Toast('获取信息失败')
                 }

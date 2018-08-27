@@ -13,9 +13,10 @@
                 <router-link to="/home/newslist">
                     <img src="../../images/menu1.png" alt="">
                     <div class="mui-media-body">新闻资讯</div></router-link></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                   <img src="../../images/menu2.png" alt=""><span class="mui-badge">5</span></span>
-                    <div class="mui-media-body">图片分享</div></a></li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <router-link to="/home/photolist">
+                   <img src="../../images/menu2.png" alt="">
+                    <div class="mui-media-body">图片分享</div></router-link></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                   <img src="../../images/menu3.png" alt="">
                     <div class="mui-media-body">商品购买</div></a></li>
@@ -47,16 +48,21 @@ export default {
     },
     methods : {
         getLunbotu(){
-            this.$http.get('http://localhost:8888/').then(result => {
-                // console.log(result.body)
-                if(result.body.status === 0){
+            this.$http.get('api/getlunbolist').then(result => {
+                console.log(result.data)
+                if(result.data.status === 0){
                     this.lunbotuList = result.body.message
                 } else {
                     Toast('加载轮播图数据失败。。。。')
                 }
             })
-            // this.axios.get('http://localhost:8888/').then(result => {
+            // this.axios.get('http://localhost:8081/api/getlunbolist').then(result => {
             //     console.log(result)
+            //      if(result.data.status === 0){
+            //         this.lunbotuList = result.data.message
+            //     } else {
+            //         Toast('加载轮播图数据失败。。。。')
+            //     }
             // })
         }
     }
