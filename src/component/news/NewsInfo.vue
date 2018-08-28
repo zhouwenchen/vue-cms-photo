@@ -50,7 +50,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .newsinfo-container {
     padding : 0 4px;
     padding-bottom: 50px;

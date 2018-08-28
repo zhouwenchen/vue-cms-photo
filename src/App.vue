@@ -37,6 +37,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.mint-header{
+    z-index: 99;
+}
 .app-container{
     padding-top: 40px;
 	overflow: hidden;
@@ -90,4 +93,3 @@ export default {
     text-overflow: ellipsis;
 }
 </style>
-

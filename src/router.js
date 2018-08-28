@@ -11,7 +11,8 @@ import SearchContainer from './component/tabbar/SearchContainer.vue'
 import NewsListContainer from './component/news/NewsList.vue'
 import NewsInfoContainer from './component/news/newsinfo.vue'
 import PhotoList from './component/photos/PhotoList.vue'
-
+import PhotoInfo from './component/photos/PhotoInfo.vue'
+import GoodsList from './component/goods/GoodsList.vue'
 // 2.创建路由对象
 var router = new VueRouter({
     routes : [// 设置路由规则的
@@ -22,7 +23,9 @@ var router = new VueRouter({
         {path : '/search',component : SearchContainer},
         {path : '/home/newslist',component:NewsListContainer},
         {path : '/home/newsinfo/:id',component : NewsInfoContainer},
-        {path : '/home/photolist',component: PhotoList}
+        {path : '/home/photolist',component: PhotoList},
+        {path : '/home/photoinfo/:id', component:PhotoInfo},
+        {path : '/home/goodlist',component : GoodsList}
     ],
     linkActiveClass : 'mui-active'
     

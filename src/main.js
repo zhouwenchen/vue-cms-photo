@@ -22,12 +22,36 @@ import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
 
 // 按需导入mint-ui的
-import { Header,Swipe, SwipeItem,Button } from 'mint-ui'
+// import { Header,Swipe, SwipeItem,Button,Lazyload} from 'mint-ui'
+// import 'mint-ui/lib/style.css'
+// Vue.component(Header.name,Header )
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
+// Vue.use(Lazyload);
+
+// 由于导入Lazyload，不能使用按需导入，需要全部导入才可以生效
+import MintUI from 'mint-ui'
+Vue.use(MintUI)
 import 'mint-ui/lib/style.css'
-Vue.component(Header.name,Header )
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
+
+// 图片缩略图的插件 vue-preview
+import VuePreview from 'vue-preview'
+// defalut install
+Vue.use(VuePreview)
+
+// with parameters install
+// Vue.use(VuePreview, {
+//     mainClass: 'pswp--minimal--dark',
+//     barsSize: {top: 0, bottom: 0},
+//     captionEl: false,
+//     fullscreenEl: false,
+//     shareEl: false,
+//     bgOpacity: 0,
+//     tapToClose: true,
+//     tapToToggleControls: false
+//   })
+
 
 // 导入vue-resource
 import VueResource from 'vue-resource'
