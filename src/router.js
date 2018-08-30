@@ -13,6 +13,9 @@ import NewsInfoContainer from './component/news/newsinfo.vue'
 import PhotoList from './component/photos/PhotoList.vue'
 import PhotoInfo from './component/photos/PhotoInfo.vue'
 import GoodsList from './component/goods/GoodsList.vue'
+import GoodsInfo from './component/goods/GoodsInfo.vue'
+import GoodsDesc from './component/goods/GoodsDesc.vue'
+import GoodsComment from './component/goods/GoodsComment.vue'
 // 2.创建路由对象
 var router = new VueRouter({
     routes : [// 设置路由规则的
@@ -25,7 +28,10 @@ var router = new VueRouter({
         {path : '/home/newsinfo/:id',component : NewsInfoContainer},
         {path : '/home/photolist',component: PhotoList},
         {path : '/home/photoinfo/:id', component:PhotoInfo},
-        {path : '/home/goodlist',component : GoodsList}
+        {path : '/home/goodlist',component : GoodsList},
+        {path : '/home/goodsinfo/:id',component:GoodsInfo},
+        {path : '/home/goodsdesc/:id',component : GoodsDesc,name : 'goodsdesc'},
+        {path : '/home/goodscomment/:id',component: GoodsComment,name : 'goodscomment'}
     ],
     linkActiveClass : 'mui-active'
     

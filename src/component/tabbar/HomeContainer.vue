@@ -1,11 +1,7 @@
 <template>
     <div>
         <!-- 这是轮播图的效果-->
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="item in lunbotuList" :key="item.url">
-                <img :src="item.img">
-            </mt-swipe-item>
-        </mt-swipe>
+        <swiper :lunbotuList="lunbotuList" :isfull="true"></swiper>
 
         <!-- 六宫格的组件-->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -37,6 +33,8 @@
 <script>
 // 导入Toast的组件，消息提示
 import { Toast } from 'mint-ui'
+// 导入轮播图的组件
+import swiper from '../subcomponent/swiper.vue'
 
 export default {
     data(){
@@ -66,32 +64,14 @@ export default {
             //     }
             // })
         }
+    },
+    components : {
+        swiper
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.mint-swipe{
-    height: 200px;
-
-    .mint-swipe-item{
-        &:nth-child(1){
-            background-color: red;
-        }
-        &:nth-child(2){
-            background-color: blue;
-        }
-        &:nth-child(3){
-            background-color: cyan;
-        }
-
-        img{
-            height: 100%;
-            width: 100%;
-        }
-    }
-
-}
 
 // 六宫格的背景
 .mui-grid-view.mui-grid-9{

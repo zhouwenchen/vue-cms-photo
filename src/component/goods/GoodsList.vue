@@ -1,55 +1,52 @@
 <template>
     <div class="goods-list">
-        <div class="good-item">
-            <img src="https://cbu01.alicdn.com/img/ibank/2018/468/616/9250616864_769866269.220x220.jpg" alt="" class="">
-            <h1 class="title">工厂批发J2 5.0寸3G智能手机四核跨</h1>
+        <router-link class="good-item" v-for="item in goods" :key="item.id" :to="'/home/goodsinfo/'+item.id" tag="div">
+            <img :src="item.imgUrl" alt="" class="">
+            <h1 class="title">{{ item.title }}</h1>
             <div class="info">
                 <p class="price">
-                    <span class="now">￥899</span>
-                    <span class="old">￥999</span>
+                    <span class="now">￥{{ item.sellPrice }}</span>
+                    <span class="old">￥{{ item.marketPrice }}</span>
                 </p>
                 <p class="sell">
                     <span>热卖中</span>
-                    <span>剩66件</span>
+                    <span>剩 {{ item.stockQuantity }}件</span>
                 </p>
             </div>
-        </div>
-
-        <div class="good-item">
-            <img src="https://cbu01.alicdn.com/img/ibank/2018/468/616/9250616864_769866269.220x220.jpg" alt="" class="">
-            <h1 class="title">工厂批发J2 5.0寸3G智能手机四核跨境热销低价OEM定制举报</h1>
-            <div class="info">
-                <p class="price">
-                    <span class="now">￥899</span>
-                    <span class="old">￥999</span>
-                </p>
-                <p class="sell">
-                    <span>热卖中</span>
-                    <span>剩66件</span>
-                </p>
-            </div>
-        </div>
-
-        <div class="good-item">
-            <img src="https://cbu01.alicdn.com/img/ibank/2018/468/616/9250616864_769866269.220x220.jpg" alt="" class="">
-            <h1 class="title">工厂批发J2 5.0寸3G智能手机四核跨境热销低价OEM定制举报</h1>
-            <div class="info">
-                <p class="price">
-                    <span class="now">￥899</span>
-                    <span class="old">￥999</span>
-                </p>
-                <p class="sell">
-                    <span>热卖中</span>
-                    <span>剩66件</span>
-                </p>
-            </div>
-        </div>
+        </router-link>
+        <mt-button type="danger" size="large" plain @click="getMore">加载更多</mt-button>
     </div>
 
 </template>
 
 <script>
-    
+import { Toast } from 'mint-ui'
+export default{
+    data(){
+        return {
+            goods : [],
+            pageIndex : 1,
+        }
+    },
+    created(){
+        this.getGoodsList()
+    },
+    methods:{
+        getGoodsList(){
+            this.$http.get('api/getgoodslist?pageIndex='+this.pageIndex).then(result =>{
+                if(result.body.status === 0){
+                    this.goods = this.goods.concat(result.body.message)
+                } else if(result.body.status === 1){
+                    Toast('没有更多的数据了')
+                }
+            })
+        },
+        getMore(){
+            this.pageIndex++;
+            this.getGoodsList();
+        }
+    }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -58,6 +55,7 @@
     flex-wrap: wrap;
     padding: 7px;
     justify-content: space-between;
+    margin-bottom: 50px;
     .good-item{
         width: 49%;
         border: 1px solid #ccc;

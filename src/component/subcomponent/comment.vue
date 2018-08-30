@@ -84,6 +84,7 @@ export default{
 
 <style lang="scss" scoped>
 .cmt-container{
+    margin-bottom: 50px;
     h3{
         font-size: 18px;
     }

@@ -166,3 +166,38 @@ api/getcategory
 ## 绘制 商品列表 页面
 
 ## 尝试在手机上 去进行项目的预览和测试
+
+## 加载 商品列表 数据， 并实现了点击 加载更多 按钮，实现加载数据
+
+## 改造轮播图的首页
+
+## 添加购物车的动画效果
+[动画效果](http://cubic-bezier.com/#.17,.67,1,.59)
+
+···
+    beforeEnter(el){
+        el.style.transform = "translate(0 , 0)"
+    },
+    enter(el,done){
+        el.offsetWidth ;// 有动画的效果
+        // 
+        const ballPosition = this.$refs.ball.getBoundingClientRect();
+        const badgePosition = document.getElementById("badge").getBoundingClientRect();
+
+        const xDist = badgePosition.left - ballPosition.left;
+        const yDist = badgePosition.top - ballPosition.top;
+
+        el.style.transform = `translate(${xDist}px, ${yDist}px)`;
+        el.style.transition = "all 1s cubic-bezier(.59,.07,.66,.95)";
+        done()
+    },
+    afterEnter(el){
+        this.ballFlag = ! this.ballFlag
+    }
+···
+
+## 如何实现加入购物车时候，拿到我们选择的数量
+1. 经过分析，按钮是goods-info ，数字 属于numbox组件
+2. 由于涉及到 父子组件 的嵌套，所以无法再goodinfo，上获取到numbox组件上的数据
+3. 涉及到 子组件 向 父组件 传值
+4. 事件调用的本质： 
