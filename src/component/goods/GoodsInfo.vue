@@ -104,6 +104,11 @@ export default{
         },
         addShopCart(){
             this.ballFlag = ! this.ballFlag;
+
+            // 需要拼接处 {id:1,count:3,price:3.2,selected : true}  这样的对象，存储到  vuex  上
+            var goodinfo = { id : this.id, count : this.selectCount, price : this.goodsinfo.sellPrice,selected : true };
+            // 调用
+            this.$store.commit("addToCar",goodinfo);
         },
         beforeEnter(el){
             el.style.transform = "translate(0 , 0)"
@@ -156,8 +161,8 @@ export default{
         background-color: red;
         position: absolute;
         z-index: 99;
-        left: 76px;
-        top: 412px;
+        left: 148px;
+        top: 393px;
         // transform: translate(160px, 426px);
     }
 }
