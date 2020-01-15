@@ -66,7 +66,7 @@ http://47.98.106.135/cms-photo/#/home
  +   return moment(dataStr).format(pattern)
  + })
 
-## 实现 新闻资讯列表 点击挑战到新闻详情的页面
+## 实现 新闻资讯列表 点击跳转到新闻详情的页面
 1. 把列表中的每一项改造为 router-link 的同时，在跳转的时候应该提供唯一的 ID
 2. 创建新闻详情的组件NewsInfo.vue
 3. 在 路由组件 中，将新闻列表页  和新闻详情页 对应起来
